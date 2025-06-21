@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>THE CYBER DECK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #001f3f;
+      color: #00ffc3;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2em;
+      color: #00ffff;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .terminal {
+      background: #002b5c;
+      padding: 20px;
+      border: 1px solid #0ff;
+      max-width: 95%;
+      width: 600px;
+      margin: auto;
+      border-radius: 6px;
+    }
+
+    pre {
+      font-size: 0.95em;
+      white-space: pre-wrap;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background: #000c1a;
+      color: #0ff;
+      border: 1px solid #0ff;
+      font-size: 1em;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: #001b33;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .output {
+      margin-top: 20px;
+      font-size: 0.95em;
+    }
+
+    .access-denied {
+      color: #ff4d4d;
+      margin-top: 15px;
+    }
+
+    .access-granted {
+      color: #00ff88;
+      font-weight: bold;
+    }
+
+    .shadow-mode {
+      margin-top: 25px;
+      color: #88ccff;
+      font-style: italic;
+    }
+
+    a {
+      word-break: break-word;
+    }
+
+    /* GLITCH EFFECTS */
+    @keyframes glitch-red {
+      0% { transform: translate(0); color: #ff4d4d; }
+      20% { transform: translate(-2px, 1px); color: #ff0000; }
+      40% { transform: translate(2px, -1px); color: #ff6666; }
+      60% { transform: translate(-1px, 2px); color: #ff1a1a; }
+      80% { transform: translate(1px, -2px); color: #ff3333; }
+      100% { transform: translate(0); color: #ff4d4d; }
+    }
+
+    @keyframes glitch-green-once {
+      0% { transform: scale(1); color: #00ffaa; }
+      20% { transform: scale(1.05); color: #00ffcc; }
+      40% { transform: scale(0.98); color: #00ff88; }
+      60% { transform: scale(1.02); color: #00ffb3; }
+      100% { transform: scale(1); color: #00ff88; }
+    }
+
+    .glitch-red {
+      animation: glitch-red 0.2s infinite;
+      font-weight: bold;
+      font-size: 1.05em;
+      letter-spacing: 1px;
+    }
+
+    .glitch-green-once {
+      animation: glitch-green-once 0.6s ease;
+      font-weight: bold;
+      font-size: 1.05em;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>THE CYBER DECK</h1>
+
+  <div class="terminal">
+    <pre>
+▓▓▓▓ START INITIAL SEQUENCE ▓▓▓▓
+⌦ Data routed.
+⌦ Code folded.
+⌦ Deck sealed.
+⌦ Access level: LEVEL 1.
+
+⛧ “Only those who speak in silence may unlock the echoes of the Deck.”
+
+— LOCKED BY THE ARCHITECT
+    </pre>
+
+    <input type="password" id="password" placeholder="Enter Access Code">
+    <button onclick="cekKode()">UNLOCK</button>
+
+    <div class="output">
+      <div id="jawaban" class="access-granted hidden">
+        ✅ ACCESS GRANTED  
+        <br><br>
+        <strong>INFORMATION UNLOCKED:</strong>  
+        <blockquote>
+          ❗<strong>Tolong! Tolong! Darurat!</strong><br>
+          Data kita error! Bantu biar bisa bernapas!<br>
+          Ucap seorang <em>Vice President</em>:<br><br>
+          <strong>BUKAN KITA BUTUHNYA</strong> unsur nonlogam dari Grup 15 pada tabel periodik.<br><br>
+          🔗 <a href="https://t.me/+5rHA°eKc××Fi&2U1" target="_blank" style="color:#00ffff;">Klik untuk lanjut (Telegram)</a>
+        </blockquote>
+      </div>
+
+      <div id="gagal" class="access-denied hidden glitch-red">
+        ❌ ACCESS DENIED. Invalid Code.
+      </div>
+
+      <div id="shadow" class="shadow-mode hidden">
+        ▓▓▓▓ SYSTEM CORE IS NOW IN SHADOW MODE ▓▓▓▓
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function cekKode() {
+      const kode = document.getElementById("password").value.trim();
+      const kunci = "Gemma Tampan";
+
+      const jawaban = document.getElementById("jawaban");
+      const gagal = document.getElementById("gagal");
+      const shadow = document.getElementById("shadow");
+
+      if (kode === kunci) {
+        jawaban.classList.remove("hidden");
+        gagal.classList.add("hidden");
+        shadow.classList.remove("hidden");
+
+        // Tambahkan efek glitch hijau sekali
+        jawaban.classList.add("glitch-green-once");
+        setTimeout(() => {
+          jawaban.classList.remove("glitch-green-once");
+        }, 700);
+
+      } else {
+        jawaban.classList.add("hidden");
+        gagal.classList.remove("hidden");
+        shadow.classList.add("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>
