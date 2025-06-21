@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: #001f3f;
+      background: #001f3f url("https://i.ibb.co/2nPXsTx/noise-red-glitch.png") repeat;
+      background-blend-mode: screen;
       color: #00ffc3;
       font-family: 'Courier New', monospace;
       margin: 0;
@@ -144,7 +145,7 @@
           Data kita error! Bantu biar bisa bernapas!<br>
           Ucap seorang <em>Vice President</em>:<br><br>
           <strong>BUKAN KITA BUTUHNYA</strong> unsur nonlogam dari Grup 15 pada tabel periodik.<br><br>
-          🔗 <a href="https://t.me/+5rHA°eKc××Fi&2U1" target="_blank" style="color:#00ffff;">Klik untuk lanjut (Telegram)</a>
+          🔗 <a href="https://t.me/+5rHA°eKc××Fi&2U1" target="_blank" style="color:#00ffff;">https://t.me/+5rHA°eKc××Fi&2U1</a>
         </blockquote>
       </div>
 
@@ -160,8 +161,8 @@
 
   <script>
     function cekKode() {
-      const kode = document.getElementById("password").value.trim();
-      const kunci = "Gemma Tampan";
+      const kode = document.getElementById("password").value.trim().toLowerCase();
+      const kunci = "gemma tampan";
 
       const jawaban = document.getElementById("jawaban");
       const gagal = document.getElementById("gagal");
@@ -172,7 +173,6 @@
         gagal.classList.add("hidden");
         shadow.classList.remove("hidden");
 
-        // Tambahkan efek glitch hijau sekali
         jawaban.classList.add("glitch-green-once");
         setTimeout(() => {
           jawaban.classList.remove("glitch-green-once");
@@ -184,6 +184,13 @@
         shadow.classList.add("hidden");
       }
     }
+
+    // Enter key support
+    document.getElementById("password").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        cekKode();
+      }
+    });
   </script>
 
 </body>
